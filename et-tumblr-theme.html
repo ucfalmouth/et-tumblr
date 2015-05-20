@@ -163,7 +163,6 @@
   })();
 
 </script>
-
     </head>
     <body data-urlencoded-name="{URLEncodedName}" class="{select:Layout}{block:IndexPage} index-page{/block:IndexPage}{block:PermalinkPage} permalink{/block:PermalinkPage}{block:SearchPage} search-page{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage} {block:TagPage}tag-{Tag}{/block:TagPage}">
         <section id="page">
@@ -272,10 +271,7 @@
                                 <div class="post-wrapper clearfix">
                                     <section class="post">
                                         {block:Text}
-                                            {block:Title}<h2>
-                                            
-
-                                            <img style="float:right" class="teamimg" src="{PostAuthorPortraitURL-64}"/><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+                                            {block:Title}<h2 class="post-title"><img style="float:right" class="teamimg" src="{PostAuthorPortraitURL-64}"/><a href="{Permalink}">{Title}</a></h2><p><span class="author-name">{PostAuthorName}</span></p>{/block:Title}
                                             {block:Body}
                                             <div class="body-text">
                                                 {Body}
@@ -544,6 +540,24 @@
         <script>!window.jQuery && document.write(unescape('%3Cscript src="http://static.tumblr.com/vr9xgox/sBgmmjhyw/jquery-1.9.1.min.js"%3E%3C/script%3E'));</script>
         <script src="http://static.tumblr.com/vr9xgox/Azhmnml1q/jquery.masonry.min.js"></script>
         <script src="http://static.tumblr.com/ehm1tdz/TyFmu1xus/main-min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var realNames = {
+                    "mark-a-williams": "Mark Williams",
+                    "amy-et": "Amy Sampson",
+                    "steph-et": "Steph Comley"
+                };
+                $("span.author-name").each(
+                function(){
+                    var name=realNames[$(this).text()];
+                    if (name != null)
+                    {
+                    $(this).text(name);
+                    }
+                }
+                );
+            });
+        </script>
 
         {block:IfGoogleAnalyticsID}
             <script>
